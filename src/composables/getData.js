@@ -4,7 +4,7 @@ export const getData = () => {
   const address = ref(null);
   const getUserData = async () => {
     const res = await fetch(
-      'https://geo.ipify.org/api/v2/country?apiKey=at_HE9nGhnpFkoIfoNLlwIchHCyRGajj'
+      'https://geo.ipify.org/api/v2/country,city?apiKey=at_HE9nGhnpFkoIfoNLlwIchHCyRGajj'
     );
     const data = await res.json();
     address.value = data;
@@ -12,7 +12,7 @@ export const getData = () => {
 
   const fetchUserIp = async (ip) => {
     const res = await fetch(
-      `https://geo.ipify.org/api/v2/country?apiKey=at_HE9nGhnpFkoIfoNLlwIchHCyRGajj&ipAddress=${ip}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=at_HE9nGhnpFkoIfoNLlwIchHCyRGajj&ipAddress=${ip}`
     );
     const data = await res.json();
     address.value = data;

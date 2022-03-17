@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "leaflet": "^1.7.1",
+    "leaflet.locatecontrol": "^0.76.0",
     "vue": "^3.2.25"
   },
   "devDependencies": {
