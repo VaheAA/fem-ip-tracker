@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-pattern-bg bg-no-repeat bg-cover max-w-full h-full">
+  <main class="bg-pattern-bg bg-no-repeat bg-cover max-w-full h-full">
     <div class="container mx-auto px-4 md:py-14 pt-14 pb-36 relative">
       <h1 class="text-center text-white text-3xl md:text-5xl mb-8 font-bold">
         IP Address Tracker
@@ -8,7 +8,7 @@
       <TrackerResult :information="address" />
     </div>
     <TrackerMap :information="address" />
-  </div>
+  </main>
 </template>
 
 <script setup>

@@ -12,6 +12,7 @@
     />
     <button
       class="bg-veryDarkGray h-14 w-14 flex flex-col justify-center items-center px-3 py-3 rounded-r-xl hover:bg-opacity-75 transition-opacity"
+      aria-label="Search IP"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
         <path fill="none" stroke="#FFF" stroke-width="3" d="M2 1l6 6-6 6" />
