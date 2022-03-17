@@ -18,5 +18,13 @@ export const getData = () => {
     address.value = data;
   };
 
-  return { address, getUserData, fetchUserIp };
+  const fetchUserDomain = async (domain) => {
+    const res = await fetch(
+      `https://geo.ipify.org/api/v2/country,city?apiKey=at_HE9nGhnpFkoIfoNLlwIchHCyRGajj&domain=${domain}`
+    );
+    const data = await res.json();
+    address.value = data;
+  };
+
+  return { address, getUserData, fetchUserIp, fetchUserDomain };
 };

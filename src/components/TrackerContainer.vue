@@ -4,7 +4,7 @@
       <h1 class="text-center text-white text-3xl md:text-5xl mb-8 font-bold">
         IP Address Tracker
       </h1>
-      <TrackerForm v-model="ipInput" @handleSubmit="getIp" />
+      <TrackerForm v-model="ipInput" @handleSubmit="handleSubmit" />
       <TrackerResult :information="address" />
     </div>
     <TrackerMap :information="address" />
@@ -17,18 +17,30 @@ import TrackerResult from './TrackerResult.vue';
 import { ref, onMounted } from 'vue';
 import { getData } from '../composables/getData';
 import { checkIp } from '../helpers/checkIp';
+import { checkDomain } from '../helpers/checkDomain';
 import TrackerMap from './TrackerMap.vue';
 
 const ipInput = ref('');
 
-const { address, getUserData, fetchUserIp } = getData();
+const { address, getUserData, fetchUserIp, fetchUserDomain } = getData();
 
 const getIp = async () => {
-  if (checkIp(ipInput) && ipInput.value !== '') {
-    await fetchUserIp(ipInput.value);
+  await fetchUserIp(ipInput.value);
+  ipInput.value = '';
+};
+
+const getDomain = async () => {
+  await fetchUserDomain(ipInput.value);
+  ipInput.value = '';
+};
+
+const handleSubmit = async () => {
+  if (checkIp(ipInput)) {
+    await getIp();
+  } else if (checkDomain(ipInput)) {
+    await getDomain();
   } else {
-    ipInput.value = '';
-    alert('Please input valid IP address');
+    alert('Input valid IP or domain');
   }
 };
 
