@@ -1,4 +1,6 @@
 <template>
-  <h1>IP Tracker</h1>
+  <TrackerContainer />
 </template>
-<script setup></script>
+<script setup>
+import TrackerContainer from './components/TrackerContainer.vue';
+</script>
